@@ -5,6 +5,8 @@
 </ion-header>
 
 <ion-content padding class="home">
-  <img class="cover" [src]="cameraData" *ngIf="photoTaken">
+  <img [src]="_DomSanitizationService.bypassSecurityTrustUrl(cameraData)" *ngIf="photoTaken">
+  <img [src]="cameraUrl" *ngIf="photoSelected">
   <button block (click)="openCamera()">Open camera</button>
+  <button block (click)="selectFromGallery()">Select from gallery</button>
 </ion-content>
